@@ -1,0 +1,4 @@
+.clangd
+*.code-workspace
+CMakeUserPresets.json
+build/
