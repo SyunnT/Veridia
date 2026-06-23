@@ -12,6 +12,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_compile_definitions(VERIDIA_EXPORT)
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
 
 set(API_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/../include")
 set(CONF_INCLUDE_DIR "${CMAKE_BINARY_DIR}/conf")
@@ -29,6 +32,7 @@ include_directories(
 )
 
 add_library(${PROJECT_NAME} SHARED
-    api/api.cpp
-    app/app.cpp
+    api/AppTable.cpp
+    api/VeridiaCoreAPI.cpp
+    app/VeridiaApp.cpp
 )
