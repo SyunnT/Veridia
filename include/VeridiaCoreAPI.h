@@ -1,12 +1,14 @@
 #pragma once
 
-#include <stdint.h>
 #include "VeridiaCoreAPI_Global.h"
 #include "ErrorCodeEnum.h"
 #include "LanguagesEnum.h"
 
 #ifdef __cplusplus
+#include <cstdint>
 extern "C" {
+#else
+#include <stdint.h>
 #endif
 
 typedef struct
