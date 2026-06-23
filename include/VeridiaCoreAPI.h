@@ -1,6 +1,7 @@
 #pragma once
 
 #include "VeridiaCoreAPI_Global.h"
+#include "ErrorCodeEnum.h"
 #include <stdint.h>
 
 #ifdef __cplusplus
@@ -13,13 +14,22 @@ typedef struct
     uint32_t generation;
 } Handle;
 
+/// @brief 获取错误代码对应的描述
+/// @return C 字符串
+/// @param code 错误代码，为其他函数的返回值，可以从 ErrorCodeEnum 看到它们的语义
+VERIDIA_DLL_API const char* errorMsg(int32_t code);
+
 /// @brief 创建 VeridiaCore 后端
-/// @return 返回的对象的句柄
-VERIDIA_DLL_API Handle createCore();
+/// @param h 句柄
+VERIDIA_DLL_API int32_t createCore(Handle* h);
 
 /// @brief 销毁一个 VeridiaCore 后端
-/// @param 被销毁对象的句柄
-VERIDIA_DLL_API void destroyCore(Handle);
+/// @param h 被销毁的对象
+VERIDIA_DLL_API int32_t destroyCore(Handle h);
+
+/// @brief 设置 Core 程序字符串字面值的语言
+/// @param h 被设置的对象
+VERIDIA_DLL_API int32_t setLanguage(Handle h);
 
 #ifdef __cplusplus
 }

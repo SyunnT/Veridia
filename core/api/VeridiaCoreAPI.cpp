@@ -1,11 +1,16 @@
+#include "VeridiaCoreAPI.h"
 #include "AppTable.h"
+#include "ErrorCode.h"
 
-Handle createCore()
+const char* errorMsg(int32_t code)
 {
-    return VeridiaAPI::AppTable::singleton().getNewHandle();
+    return VeridiaAPI::errorMsgsMap[code];
 }
 
-void destroyCore(Handle handle)
-{
-    VeridiaAPI::AppTable::singleton().releaseHandle(handle);
-}
+int32_t createCore(Handle* h)
+{}
+
+int32_t destroyCore(Handle h)
+{}
+
+int32_t setLanguage(Handle h);

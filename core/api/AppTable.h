@@ -3,7 +3,6 @@
 #include <cstdint>
 #include <vector>
 #include <stack>
-#include "VeridiaCoreAPI.h"
 
 namespace Veridia {
     class App;
@@ -15,8 +14,6 @@ namespace VeridiaAPI
     {
     public:
         static AppTable& singleton();
-        Handle getNewHandle();
-        void releaseHandle(Handle);
 
     private:
         AppTable();
