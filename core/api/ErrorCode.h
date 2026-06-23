@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ErrorCodeEnum.h"
 #include <unordered_map>
 
 namespace VeridiaAPI

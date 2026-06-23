@@ -1,8 +1,9 @@
 #pragma once
 
+#include <stdint.h>
 #include "VeridiaCoreAPI_Global.h"
 #include "ErrorCodeEnum.h"
-#include <stdint.h>
+#include "LanguagesEnum.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,7 +30,7 @@ VERIDIA_DLL_API int32_t destroyCore(Handle h);
 
 /// @brief 设置 Core 程序字符串字面值的语言
 /// @param h 被设置的对象
-VERIDIA_DLL_API int32_t setLanguage(Handle h);
+VERIDIA_DLL_API int32_t setLanguage(Handle h, int32_t lang);
 
 #ifdef __cplusplus
 }

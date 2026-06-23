@@ -18,6 +18,7 @@ namespace VeridiaAPI
     private:
         AppTable();
         ~AppTable();
+        
     private:
         /// @brief Slot结构
         struct Slot

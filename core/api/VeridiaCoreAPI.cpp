@@ -13,4 +13,5 @@ int32_t createCore(Handle* h)
 int32_t destroyCore(Handle h)
 {}
 
-int32_t setLanguage(Handle h);
+int32_t setLanguage(Handle h, int32_t lang)
+{}

@@ -2,5 +2,5 @@
 
 enum ErrorCode
 {
-    API_ERRORCODE_SUCCESS = 0
+    API_ERRORCODE_SUCCESS
 };
