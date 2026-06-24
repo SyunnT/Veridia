@@ -15,7 +15,7 @@ namespace VeridiaAPI
     public:
         static AppTable& singleton();
         uint32_t getFreeIndex();
-        uint32_t getGeneration(uint32_t index);
+        // uint32_t getGeneration(uint32_t index);
         void initApp(uint32_t index, uint32_t generation);
 
     private:

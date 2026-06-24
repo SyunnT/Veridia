@@ -21,10 +21,10 @@ uint32_t AppTable::getFreeIndex()
     return index;
 }
 
-uint32_t AppTable::getGeneration(uint32_t index)
-{
+// uint32_t AppTable::getGeneration(uint32_t index)
+// {
     
-}
+// }
 
 void AppTable::initApp(uint32_t index, uint32_t generation)
 {}
