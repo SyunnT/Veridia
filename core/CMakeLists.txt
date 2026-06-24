@@ -32,8 +32,8 @@ include_directories(
 )
 
 add_library(${PROJECT_NAME} SHARED
-    api/AppTable.cpp
-    api/ErrorCode.cpp
     api/VeridiaCoreAPI.cpp
+    api/VeridiaAPIAppTable.cpp
     app/VeridiaApp.cpp
+    i18n/VeridiaLiterals.cpp
 )

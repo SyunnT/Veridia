@@ -1,10 +1,9 @@
 #include "VeridiaCoreAPI.h"
-#include "AppTable.h"
-#include "ErrorCode.h"
+#include "VeridiaAPIAppTable.h"
 
-const char* errorMsg(int32_t code)
+const char* errorMsg(Handle h, int32_t code)
 {
-    return VeridiaAPI::errorMsgsMap[code];
+    return "";
 }
 
 int32_t createCore(Handle* h)

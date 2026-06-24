@@ -1,4 +1,4 @@
-#include "AppTable.h"
+#include "VeridiaAPIAppTable.h"
 #include "app/VeridiaApp.h"
 
 using namespace VeridiaAPI;

@@ -20,7 +20,7 @@ typedef struct
 /// @brief 获取错误代码对应的描述
 /// @return C 字符串
 /// @param code 错误代码，为其他函数的返回值，可以从 ErrorCodeEnum 看到它们的语义
-VERIDIA_DLL_API const char* errorMsg(int32_t code);
+VERIDIA_DLL_API const char* errorMsg(Handle h, int32_t code);
 
 /// @brief 创建 VeridiaCore 后端
 /// @param h 句柄
