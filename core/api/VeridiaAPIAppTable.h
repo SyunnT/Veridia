@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <string>
 #include <vector>
 #include <stack>
 
@@ -13,14 +14,12 @@ namespace VeridiaAPI
     class AppTable
     {
     public:
-        static AppTable& singleton();
-        uint32_t getFreeIndex();
-        // uint32_t getGeneration(uint32_t index);
-        void initApp(uint32_t index, uint32_t generation);
-
-    private:
-        AppTable();
-        ~AppTable();
+        static std::string errorMsg(uint32_t index, uint32_t generation, int32_t error_code);
+        static uint32_t getFreeIndex();
+        static uint32_t getNewGeneration(uint32_t index);
+        static void initApp(uint32_t index, uint32_t generation);
+        static void releaseApp(uint32_t index, uint32_t generation);
+        static void setAppLanguage(uint32_t index, uint32_t generation, int32_t lang_code);
         
     private:
         /// @brief Slot结构
@@ -28,12 +27,14 @@ namespace VeridiaAPI
         {
             Veridia::App* obj;
             uint32_t generation;
+            Slot();
+            ~Slot();
         };
 
         /// @brief 动态Slot表
-        std::vector<Slot> table;
+        static std::vector<Slot> table;
 
         /// @brief 空闲id表
-        std::stack<uint32_t> freeList;
+        static std::stack<uint32_t> freeList;
     };
 }
