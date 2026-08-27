@@ -1,0 +1,5 @@
+project(${PROJECT_UI_QML}
+    VERSION 0.1.0
+    LANGUAGES CXX
+)
+

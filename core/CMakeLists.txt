@@ -1,39 +1,26 @@
-cmake_minimum_required(VERSION 3.25)
-project(VeridiaCore
+project(${PROJECT_CORE}
     VERSION 0.1.0
-    LANGUAGES CXX C
+    LANGUAGES CXX
 )
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-add_compile_definitions(VERIDIA_EXPORT)
-if(MSVC)
-    add_compile_options(/utf-8)
-endif()
-
-set(API_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/../include")
-set(CONF_INCLUDE_DIR "${CMAKE_BINARY_DIR}/conf")
-
-configure_file(
-    cmake/Configurations.h.in
-    ${CONF_INCLUDE_DIR}/Configurations.h
-    @ONLY
+add_library(${PROJECT_NAME} STATIC
+    include/VeridiaCore.h
+    src/VeridiaCore.cpp
+)
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${TEMP_DIR}/lib
+)
+target_include_directories(${PROJECT_NAME} PRIVATE
+    include
 )
 
-include_directories(
-    ${API_INCLUDE_DIR}
-    ${CONF_INCLUDE_DIR}
-    ${CMAKE_SOURCE_DIR}
+add_library(${TARGET_CORE_C_API} STATIC
+    c_api/include/VeridiaCoreApi.h
+    c_api/src/VeridiaCoreApi.cpp
 )
-
-add_library(${PROJECT_NAME} SHARED
-    api/VeridiaCoreAPI.cpp
-    api/VeridiaAPIAppTable.cpp
-    app/VeridiaApp.cpp
-    i18n/VeridiaLiterals.cpp
+set_target_properties(${TARGET_CORE_C_API} PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${TEMP_DIR}/lib
+)
+target_include_directories(${TARGET_CORE_C_API} PRIVATE
+    c_api/include
 )

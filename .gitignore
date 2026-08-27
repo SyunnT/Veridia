@@ -2,3 +2,4 @@
 *.code-workspace
 CMakeUserPresets.json
 build*/
+.idea
